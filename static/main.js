@@ -134,7 +134,7 @@ const cancel = () => {
 // TODO : change localhost:3030 with domain
 const copy = async() => {
     const roomid = document.getElementById("roomid").innerText;
-    await navigator.clipboard.writeText("http://localhost:3030/join/" + roomid);
+    await navigator.clipboard.writeText("https://prototype.noth3r.repl.co/room/" + roomid);
 };
 const invitebox = () => {
     $("#getCodeModal").modal("show");
@@ -153,15 +153,23 @@ const muteUnmute = () => {
 };
 
 // TODO : fix BUG, mute tidak off di client lain
-const VideomuteUnmute = () => {
+const VideomuteUnmute = async () => {
     const enabled = myVideoStream.getVideoTracks()[0].enabled;
-    console.log(getUserMedia);
-    if (enabled) {
+    console.log(myVideoStream.getVideoTracks()[0])
+    console.log(myVideoStream.getAudioTracks()[0])
+    console.log(enabled)
+    if (enabled || enabled == undefined) {
         myVideoStream.getVideoTracks()[0].enabled = false;
+        myVideoStream.getVideoTracks()[0].stop()
         document.getElementById("video").style.color = "red";
     } else {
         document.getElementById("video").style.color = "white";
-        myVideoStream.getVideoTracks()[0].enabled = true;
+        myVideoStream = await navigator.mediaDevices
+    .getUserMedia({
+        video: true
+    })
+      addVideoStream(myVideo, myVideoStream, myname);
+        // myVideoStream.getVideoTracks()[0].enabled = true;
     }
 };
 

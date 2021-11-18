@@ -6,7 +6,6 @@
 html,
 body {
     height: 100%;
-    font-family: "Roboto", sans-serif;
 }
 
 #video-grids {
@@ -30,13 +29,13 @@ a:active {
     align-items: center;
     flex-wrap: wrap;
     overflow-y: auto;
-    background-color: yellow;
 }
 
 h1 {
+    color: white;
     position: absolute;
     bottom: 0;
-    left: 40%;
+    text-align: center;
 }
 
 video {
@@ -144,11 +143,6 @@ video {
     margin-bottom: 5px
 }
 
-.main_right_header h6 {
-    animation: animate 20s linear infinite;
-    background-image: linear-gradient(to right, #f00, #ff0, #0ff, #0f0, #00f);
-    background-size: 1000%;
-}
 
 @keyframes animate {
     0% {
@@ -161,3 +155,5 @@ video {
         background-position: 0% 100%;
     }
 }
+
+

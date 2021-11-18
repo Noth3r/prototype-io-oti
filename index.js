@@ -30,11 +30,25 @@ app.get("/join", (req, res) => {
     );
 });
 
-app.get("/joinold", (req, res) => {
+app.get("/joinw", (req, res) => {
+    console.log(req.query)
     res.redirect(
         url.format({
-            pathname: req.query.meeting_id,
-            query: req.query,
+            pathname: `/join/${req.query.meeting_id}`,
+            query: {name: req.query.name}
+        })
+    );
+});
+
+app.get("/room/:rooms", (req, res) => {
+  res.render("input", {roomid: req.params.rooms})
+})
+
+app.get("/joinold", (req, res) => {
+  res.redirect(
+        url.format({
+            pathname: '/join/' + req.query.meeting_id,
+            query: {name: req.query.name},
         })
     );
 });
