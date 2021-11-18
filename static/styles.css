@@ -12,12 +12,12 @@ body {
     display: flex
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
+.leave_meeting a,
+.leave_meeting a:hover,
+.leave_meeting a:focus,
+.leave_meeting a:active {
     text-decoration: none;
-    color: inherit;
+    color: white;
 }
 
 .video-grid {

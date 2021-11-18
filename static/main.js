@@ -155,21 +155,14 @@ const muteUnmute = () => {
 // TODO : fix BUG, mute tidak off di client lain
 const VideomuteUnmute = async () => {
     const enabled = myVideoStream.getVideoTracks()[0].enabled;
-    console.log(myVideoStream.getVideoTracks()[0])
-    console.log(myVideoStream.getAudioTracks()[0])
-    console.log(enabled)
     if (enabled || enabled == undefined) {
         myVideoStream.getVideoTracks()[0].enabled = false;
-        myVideoStream.getVideoTracks()[0].stop()
+        myVideoStream.getVideoTracks()[0].muted = true;
         document.getElementById("video").style.color = "red";
     } else {
         document.getElementById("video").style.color = "white";
-        myVideoStream = await navigator.mediaDevices
-    .getUserMedia({
-        video: true
-    })
-      addVideoStream(myVideo, myVideoStream, myname);
-        // myVideoStream.getVideoTracks()[0].enabled = true;
+        myVideoStream.getVideoTracks()[0].enabled = true;
+        myVideoStream.getVideoTracks()[0].muted = false;
     }
 };
 
