@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "static", "index.html"));
 });
 
-
 // TODO : Ganti uuid4 dengan rand String. ex: uie-asde-sde
 app.get("/join", (req, res) => {
     res.redirect(

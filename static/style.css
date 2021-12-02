@@ -21,7 +21,8 @@ body {
   background-color: #B969D4;
 }
 
-.violet:hover {
+.violet:hover,
+.violet:active {
   background-color: rgb(162, 97, 184);
 }
 

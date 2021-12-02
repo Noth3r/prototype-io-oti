@@ -13,13 +13,14 @@
 </head>
 
 <body>
+    <img class="logo img-fluid" src="/public/logo.png" alt="Alpha inst">
     <div class="Name-Page">
         <div class="form">
             <form class="known-form"  action="/joinw" autocomplete="off">
                 <input class="form-control" type="text" placeholder="Enter your name" name="name" required oninvalid="this.setCustomValidity('Enter Your Name')" oninput="this.setCustomValidity('')"/>
 
                 <input class="form-control meeting_id" value=<%= roomid %> type="text" name="meeting_id" required oninvalid="this.setCustomValidity('Enter Your Name')" oninput="this.setCustomValidity('')"/>
-                <button class="btn btn-primary">Join Now?</button>
+                <button class="btn violet">Join Now?</button>
             </form>
         </div>
     </div>

@@ -18,14 +18,14 @@
         <div class="form">
             <form class="known-form"  action="/join" autocomplete="off">
                 <input class="form-control" type="text" placeholder="Enter your name" name="name" required oninvalid="this.setCustomValidity('Enter Your Name')" oninput="this.setCustomValidity('')"/>
-                <button class="btn btn-primary violet">Host a Meeting</button>
+                <button class="btn violet">Host a Meeting</button>
                 <p><a href="javascript:show()">Join Meeting?</a></p>
             </form>
 
             <form class="unknown-form" action="/joinold" autocomplete="off">
                 <input class="form-control" type="text" placeholder="Enter your name" name="name" required oninvalid="this.setCustomValidity('Enter Your Name')" oninput="this.setCustomValidity('')"/>
                 <input class="form-control meeting_id" type="text" placeholder="Enter Meeting Id" name="meeting_id" required oninvalid="this.setCustomValidity('Enter Your Meeting Id')" oninput="this.setCustomValidity('')"/>
-                <button class="btn btn-primary violet">Join Meeting</button>
+                <button class="btn violet">Join Meeting</button>
                 <p>
                     <a href="javascript:show()">Host Meeting?</a>
                 </p>

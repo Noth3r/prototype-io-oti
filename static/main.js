@@ -3,6 +3,7 @@ const main__chat__window = document.getElementById("main__chat_window");
 const videoGrids = document.getElementById("video-grids");
 const myVideo = document.createElement("video");
 const chat = document.getElementById("chat");
+const game = document.getElementById("unity-container");
 OtherUsername = "";
 chat.hidden = true;
 myVideo.muted = true;
@@ -134,7 +135,7 @@ const cancel = () => {
 // TODO : change localhost:3030 with domain
 const copy = async() => {
     const roomid = document.getElementById("roomid").innerText;
-    await navigator.clipboard.writeText("https://prototype.noth3r.repl.co/room/" + roomid);
+    await navigator.clipboard.writeText("https://prototype-io-oti.noth3r.repl.co/room/" + roomid);
 };
 const invitebox = () => {
     $("#getCodeModal").modal("show");
@@ -175,6 +176,14 @@ const showchat = () => {
     }
 };
 
+const showgame = () => {
+  if (game.style.display === "none") {
+    game.style.display = "block";
+  } else {
+    game.style.display = "none";
+  }
+}
+
 // Menambah <video> ke browser
 const addVideoStream = (videoEl, stream, name) => {
     videoEl.srcObject = stream;
@@ -186,6 +195,7 @@ const addVideoStream = (videoEl, stream, name) => {
     h1.appendChild(h1name);
     const videoGrid = document.createElement("div");
     videoGrid.classList.add("video-grid");
+    videoGrid.classList.add(name)
     videoGrid.appendChild(h1);
     videoGrids.appendChild(videoGrid);
     videoGrid.append(videoEl);
@@ -198,3 +208,60 @@ const addVideoStream = (videoEl, stream, name) => {
         }
     }
 }
+
+// var buildUrl = "/Build";
+//       var loaderUrl = buildUrl + "/testAlpha.loader.js";
+//       var config = {
+//         dataUrl: buildUrl + "/testAlpha.data",
+//         frameworkUrl: buildUrl + "/testAlpha.framework.js",
+//         codeUrl: buildUrl + "/testAlpha.wasm",
+//         streamingAssetsUrl: "StreamingAssets",
+//         companyName: "DefaultCompany",
+//         productName: "projectAlpha",
+//         productVersion: "1.0",
+//       };
+
+//       var container = document.querySelector("#unity-container");
+//       var canvas = document.querySelector("#unity-canvas");
+//       var loadingBar = document.querySelector("#unity-loading-bar");
+//       var progressBarFull = document.querySelector("#unity-progress-bar-full");
+//       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+//       var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+//       // By default Unity keeps WebGL canvas render target size matched with
+//       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+//       // Set this to false if you want to decouple this synchronization from
+//       // happening inside the engine, and you would instead like to size up
+//       // the canvas DOM size and WebGL render target sizes yourself.
+//       // config.matchWebGLToCanvasSize = false;
+
+//       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+//         container.className = "unity-mobile";
+//         // Avoid draining fillrate performance on mobile devices,
+//         // and default/override low DPI mode on mobile browsers.
+//         config.devicePixelRatio = 1;
+//         mobileWarning.style.display = "block";
+//         setTimeout(() => {
+//           mobileWarning.style.display = "none";
+//         }, 5000);
+//       } else {
+//         canvas.style.width = "960px";
+//         canvas.style.height = "600px";
+//       }
+//       loadingBar.style.display = "block";
+
+//       var script = document.createElement("script");
+//       script.src = loaderUrl;
+//       script.onload = () => {
+//         createUnityInstance(canvas, config, (progress) => {
+//           progressBarFull.style.width = 100 * progress + "%";
+//         }).then((unityInstance) => {
+//           loadingBar.style.display = "none";
+//           fullscreenButton.onclick = () => {
+//             unityInstance.SetFullscreen(1);
+//           };
+//         }).catch((message) => {
+//           alert(message);
+//         });
+//       };
+//       document.body.appendChild(script);
